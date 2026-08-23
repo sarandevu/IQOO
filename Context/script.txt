@@ -1,0 +1,78 @@
+================================================================================
+iQOO CREATOR STUDIO — 3-MINUTE HACKATHON VIDEO DEMO SCRIPT
+Tagline: “We did not make the phone a smaller desktop editor. We made the phone the editing hardware.”
+================================================================================
+
+[0:00 - 0:25] STAGE 1: THE PROBLEM — MOBILE TIMELINE PAIN
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Close-up on smartphone screen in On-The-Go mode.
+- Creator trying to trim video clips on a small touchscreen timeline with their thumb.
+- The playhead slips, cuts are inaccurate, frustration is visible.
+
+Voiceover / Presenter:
+"Today’s creators capture high-resolution 4K footage on their phones, but editing that footage on the go is painful. Touching tiny timeline markers with your thumb is clumsy and imprecise. And when creators get back to a desk, they’re forced to buy expensive dedicated editing consoles or upload gigabytes of media to the cloud."
+
+
+[0:25 - 1:00] STAGE 2: BEATSNAP — ON-DEVICE AI EDITING
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Screen shows iQOO Creator Studio On-The-Go Workstation.
+- Creator taps the '⚡ BeatSnap AI' button.
+- Hexagon NPU HUD activates: 52ms inference benchmark, real-time waveform transient scan.
+- Cut points instantly appear on the timeline synchronized to the music rhythm.
+
+Voiceover / Presenter:
+"Enter iQOO Creator Studio. Instead of spending hours hunting for music beats manually, the creator taps BeatSnap. 
+Powered entirely on-device by the Snapdragon 8 Elite Hexagon NPU, BeatSnap analyzes the audio waveform and generates beat-synced cut suggestions in just 52 milliseconds — 100% offline, with zero battery drain and zero cloud dependency."
+
+
+[1:00 - 1:45] STAGE 3: STUDIO MODE & THE CREATOR DECK
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Split screen or wide shot: Creator places iQOO Phone on the desk next to a laptop.
+- Office Kit wireless connection establishes instantly (<4ms latency).
+- Laptop screen transforms into an expansive 4K preview canvas.
+- Phone transforms into a dedicated hardware console: The Creator Deck.
+
+Voiceover / Presenter:
+"When you arrive at your desk, vivo/iQOO Office Kit transforms the entire experience. 
+Your laptop becomes the high-resolution 4K visual canvas, while your iQOO smartphone turns into dedicated tactile editing hardware: The Creator Deck."
+
+
+[1:45 - 2:20] STAGE 4: TACTILE JOG SCRUBBING & COLOR GRADING
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Creator’s thumb rotates the mechanical rotary jog wheel on the phone.
+- Haptic vibration and audio clicks trigger with every frame step.
+- Playhead moves with frame-accurate precision across the 4K canvas.
+- Creator tweaks the rotary Exposure and Temperature dials, showing instant color grading changes on the 4K video.
+
+Voiceover / Presenter:
+"Look at the control surface. The haptic jog wheel provides mechanical tactile feedback for frame-accurate scrubbing. 
+Integrated rotary dials give physical control over exposure, saturation, and color temperature in real-time. We didn’t need a $500 physical editing console — the phone IS the console."
+
+
+[2:20 - 2:45] STAGE 5: .IQOO PORTABLE RECIPE & QR TRANSFER
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Creator taps '.iqoo QR Recipe' on the Creator Deck.
+- A compact QR code appears on screen with payload readout: '840 Bytes'.
+- Second phone scans the QR code; the entire timeline, cuts, and color grade reconstruct instantly without uploading any video files.
+
+Voiceover / Presenter:
+"Now, how do you share this edit with a collaborator? Traditional editors force you to upload gigabytes of video to the cloud. 
+Creator Studio introduces the .iqoo edit recipe. Our philosophy: 'Move the edit, not the media.' 
+The entire edit state — cuts, beat map, and color parameters — is serialized into an 840-byte offline recipe transferable via a simple QR code."
+
+
+[2:45 - 3:00] STAGE 6: CLOSING PITCH
+--------------------------------------------------------------------------------
+Camera / Screen:
+- Wide shot showing seamless interplay between iQOO phone and laptop canvas.
+- Final Title Card: iQOO Creator Studio — Turn the phone into the editing hardware.
+
+Voiceover / Presenter:
+"iQOO Creator Studio proves that the smartphone doesn't have to be a cramped desktop editor.
+We did not make the phone a smaller PC. We made the phone the editing hardware. 
+Thank you."

@@ -1,0 +1,25 @@
+{
+  "name": "iqoo-creator-studio",
+  "version": "1.0.0",
+  "description": "iQOO Creator Studio - Turn the phone into the editing hardware",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "iqoo",
+    "video-editor",
+    "creator-deck",
+    "on-device-ai",
+    "beatsnap",
+    "office-kit",
+    "npu"
+  ],
+  "author": "iQOO Creator Studio Team",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.21.3"
+  }
+}

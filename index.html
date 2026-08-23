@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iQOO Creator Studio — Turn the Phone into the Editing Hardware</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Top Navigation Bar -->
+    <header class="top-navbar">
+      <div class="brand-section">
+        <a href="#" class="brand-logo">
+          <span class="brand-badge">iQOO</span>
+          <span class="brand-title">CREATOR STUDIO</span>
+        </a>
+        <span class="brand-subtitle">// HARDWARE EDITION</span>
+      </div>
+
+      <!-- View Mode Tabs -->
+      <nav class="view-mode-tabs">
+        <button class="mode-tab-btn active" data-mode="dual">
+          <span>📺📱</span> Dual Simulator
+        </button>
+        <button class="mode-tab-btn" data-mode="canvas">
+          <span>💻</span> 4K Canvas
+        </button>
+        <button class="mode-tab-btn" data-mode="deck">
+          <span>🎛️</span> Creator Deck
+        </button>
+        <button class="mode-tab-btn" data-mode="mobile">
+          <span>📱</span> On-The-Go Editor
+        </button>
+      </nav>
+
+      <!-- Status & Actions -->
+      <div class="header-actions">
+        <div class="status-badge npu-badge">
+          <span class="status-dot"></span>
+          <span>NPU: Snapdragon 8 Elite (52ms)</span>
+        </div>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span>Office Kit: Connected (4ms)</span>
+        </div>
+        <button class="btn-secondary-action" id="btnExportIqooRecipe">
+          <span>📦</span> .iqoo QR Recipe
+        </button>
+        <button class="btn-demo-agent" id="btnStartDemoAgent">
+          <span>▶</span> Auto Demo Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Area -->
+    <main class="workspace-area">
+      
+      <!-- Dual Simulator Layout -->
+      <div class="dual-simulator-layout" id="dualLayout">
+        
+        <!-- Left: Laptop 4K Canvas Pane -->
+        <section class="laptop-pane" id="laptopPane">
+          <div class="laptop-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--iqoo-yellow);">●</span>
+              <span>4K CINEMA CANVAS — OFFICE KIT LIVE BRIDGE</span>
+            </div>
+            <div style="color: var(--text-muted); font-family: var(--font-mono); font-size: 11px;">
+              OUTPUT: 3840x2160 @ 60FPS
+            </div>
+          </div>
+
+          <!-- Video Preview Box -->
+          <div class="canvas-preview-container">
+            <div class="canvas-video-wrapper">
+              <canvas id="mainCanvas"></canvas>
+              
+              <!-- Video HUD Overlay -->
+              <div class="canvas-overlay-hud">
+                <div class="hud-timecode" id="hudTimecode">00:02:12</div>
+                <div class="hud-resolution">HDR10+ / REC.709</div>
+              </div>
+
+              <!-- Audio Meter -->
+              <div class="audio-meter-bar">
+                <div class="meter-fill" id="audioMeterFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Track Timeline Panel -->
+          <div class="timeline-panel">
+            <div class="timeline-toolbar">
+              <div class="timeline-tools-left">
+                <button class="tl-tool-btn" id="btnTogglePlay">
+                  <span class="play-icon-symbol">▶</span> Play/Pause
+                </button>
+                <button class="tl-tool-btn" id="btnJogStepBack">
+                  <span>◀</span> Frame -1
+                </button>
+                <button class="tl-tool-btn" id="btnJogStepFwd">
+                  <span>▶</span> Frame +1
+                </button>
+              </div>
+              <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">
+                TIMELINE: 3 CLIPS | 12 BEAT MARKS
+              </div>
+            </div>
+
+            <!-- Tracks Area -->
+            <div class="timeline-tracks-area" id="timelineTracksArea">
+              <!-- Playhead Line -->
+              <div class="timeline-playhead-line" id="timelinePlayheadLine" style="left: 15%;">
+                <div class="playhead-handle"></div>
+              </div>
+
+              <!-- Track 1: Video Clips -->
+              <div class="timeline-track" style="height: 38px;">
+                <span class="track-label">VIDEO TRACK (4K)</span>
+                <div id="trackVideoClips" style="width: 100%; height: 100%; position: relative;"></div>
+              </div>
+
+              <!-- Track 2: BeatSnap AI Markers -->
+              <div class="timeline-track" style="height: 24px; background: rgba(255, 230, 0, 0.05);">
+                <span class="track-label" style="color: var(--iqoo-yellow);">BEATSNAP AI</span>
+                <div id="trackBeatPins" style="width: 100%; height: 100%; position: relative;"></div>
+              </div>
+
+              <!-- Track 3: Audio Waveform -->
+              <div class="timeline-track" style="height: 32px;">
+                <span class="track-label">AUDIO 128BPM</span>
+                <div class="clip-block clip-audio-main" style="width: 100%; left: 0;">
+                  iQOO_HyperBeat_128BPM.wav
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right: iQOO Smartphone Frame (Creator Deck) -->
+        <aside class="phone-pane" id="phonePane">
+          <div class="phone-mockup-frame">
+            
+            <!-- Phone Notch / Status Bar -->
+            <div class="phone-notch-bar">
+              <span>09:41</span>
+              <div class="phone-camera-hole"></div>
+              <span>5G · 100%</span>
+            </div>
+
+            <!-- Phone Screen Content (Creator Deck Console) -->
+            <div class="phone-screen-content">
+              <div class="deck-container">
+                
+                <!-- Deck Top Info -->
+                <div class="deck-header-bar">
+                  <div class="deck-status-pill">
+                    <span>⚡</span> CREATOR DECK
+                  </div>
+                  <div style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--iqoo-yellow);" id="deckTimecode">
+                    00:02:12
+                  </div>
+                </div>
+
+                <!-- Rotary Jog Wheel Console -->
+                <div class="jog-wheel-section">
+                  <div class="jog-wheel-outer" id="jogWheelOuter">
+                    <div class="jog-wheel-ticks"></div>
+                    <div class="jog-wheel-inner" id="jogWheelInner">
+                      <div class="jog-finger-indent"></div>
+                      <span class="jog-center-label">JOG / SCRUB</span>
+                      <span class="jog-degree-counter" id="jogDegreeDisplay">000°</span>
+                    </div>
+                  </div>
+
+                  <!-- Quick Frame Step Buttons -->
+                  <div class="jog-step-bar">
+                    <button class="btn-jog-step" id="btnDeckStepBack">◀ -1 FRAME</button>
+                    <button class="btn-jog-step" id="btnDeckPlay">
+                      <span class="play-icon-symbol">▶</span> PLAY
+                    </button>
+                    <button class="btn-jog-step" id="btnDeckStepFwd">+1 FRAME ▶</button>
+                  </div>
+                </div>
+
+                <!-- Color Grading Dials Section -->
+                <div class="color-dials-section">
+                  <div class="section-label-row">
+                    <span>Tactile Color Grading</span>
+                    <span style="color: var(--iqoo-cyan); font-size: 10px;">Snapdragon GPU Scopes</span>
+                  </div>
+                  <div id="colorDialsContainer"></div>
+                </div>
+
+                <!-- Action Button Matrix -->
+                <div class="deck-actions-grid">
+                  <button class="deck-pad-btn beatsnap-trigger" id="btnTriggerBeatSnap">
+                    <span class="pad-icon">⚡</span>
+                    <span class="pad-text">BeatSnap AI</span>
+                  </button>
+                  <button class="deck-pad-btn" id="btnDeckSplit">
+                    <span class="pad-icon">✂️</span>
+                    <span class="pad-text">Split Cut</span>
+                  </button>
+                  <button class="deck-pad-btn" id="btnDeckDelete">
+                    <span class="pad-icon">🗑️</span>
+                    <span class="pad-text">Ripple Del</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </main>
+
+    <!-- Modal 1: BeatSnap On-Device AI Pipeline -->
+    <div class="modal-backdrop" id="beatSnapModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title">
+            <span>⚡</span> BeatSnap On-Device AI Engine
+          </div>
+          <button class="modal-close-btn" data-modal="beatSnapModal">✕</button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.4;">
+            Analyzes raw audio waveform transients locally on the <strong>Snapdragon 8 Elite Hexagon NPU</strong> to automatically generate beat-synced cut suggestions with zero cloud dependency.
+          </p>
+
+          <!-- NPU Telemetry Cards -->
+          <div class="npu-telemetry-grid">
+            <div class="npu-stat-card">
+              <span class="npu-stat-label">Inference Latency</span>
+              <span class="npu-stat-value">52 ms</span>
+              <span class="npu-stat-sub">Real-Time Local</span>
+            </div>
+            <div class="npu-stat-card">
+              <span class="npu-stat-label">NPU Efficiency</span>
+              <span class="npu-stat-value">+45%</span>
+              <span class="npu-stat-sub">vs Mobile GPU</span>
+            </div>
+            <div class="npu-stat-card">
+              <span class="npu-stat-label">Privacy & Cloud</span>
+              <span class="npu-stat-value">0% Cloud</span>
+              <span class="npu-stat-sub">100% On-Device</span>
+            </div>
+          </div>
+
+          <!-- Waveform Canvas -->
+          <div class="waveform-canvas-box">
+            <canvas id="waveformCanvas"></canvas>
+          </div>
+
+          <!-- Progress & Action -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 6px;">
+              <span id="npuAnalysisStatus" style="color: var(--iqoo-cyan); font-weight: 600;">Ready for Neural Analysis</span>
+              <span style="color: var(--text-muted); font-family: var(--font-mono);">128 BPM TRACK</span>
+            </div>
+            <div style="height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; overflow: hidden; margin-bottom: 14px;">
+              <div id="npuProgressBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, var(--iqoo-cyan), var(--iqoo-yellow)); transition: width 0.15s ease;"></div>
+            </div>
+            <button class="btn-primary-action" id="btnStartNpuAnalysis" style="width: 100%; justify-content: center; padding: 12px;">
+              <span>⚡</span> Run BeatSnap AI Analysis
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: .iqoo Portable Edit Recipe & QR Studio -->
+    <div class="modal-backdrop" id="recipeModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title">
+            <span>📦</span> .iqoo Portable Edit Recipe & QR Studio
+          </div>
+          <button class="modal-close-btn" data-modal="recipeModal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <p style="font-size: 12px; color: var(--text-secondary);">
+              <strong>"Move the edit, not the media."</strong> Full edit recipe serialized into a compact payload.
+            </p>
+            <span class="status-badge" id="recipePayloadSize" style="background: rgba(255,230,0,0.1); color: var(--iqoo-yellow); border-color: rgba(255,230,0,0.3);">
+              840 Bytes (&lt; 2 KB)
+            </span>
+          </div>
+
+          <div class="recipe-content-grid">
+            <div class="qr-box-wrapper">
+              <canvas id="qrCanvas"></canvas>
+              <span class="qr-caption">Scan via iQOO Camera</span>
+            </div>
+            <div class="recipe-json-viewer" id="recipeJsonViewer"></div>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <button class="btn-secondary-action" id="btnCopyRecipePayload" style="flex: 1; justify-content: center;">
+              Copy JSON Recipe
+            </button>
+            <button class="btn-primary-action" id="btnReconstructRecipe" style="flex: 1; justify-content: center;">
+              ✓ Reconstruct Timeline Offline
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Automation Agent Narration Banner (For Screen Recording) -->
+    <div class="demo-agent-banner" id="demoAgentBanner">
+      <div class="agent-avatar-badge">🎙️</div>
+      <div class="agent-narration-text">
+        <span class="narration-step-tag" id="narrationStepTag">STAGE 1: PROBLEM STATEMENT</span>
+        <span class="narration-main-speech" id="narrationSpeechText">Loading pitch presentation script...</span>
+      </div>
+      <div class="agent-controls-right">
+        <button class="btn-secondary-action" id="btnStopDemoAgent" style="padding: 6px 10px; font-size: 11px;">
+          Stop Demo
+        </button>
+      </div>
+    </div>
+
+    <!-- Simulated AI Spotlight Pointer for Recording -->
+    <div class="demo-spotlight-pointer" id="demoSpotlightPointer"></div>
+
+  </div>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
